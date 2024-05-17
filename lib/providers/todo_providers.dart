@@ -9,9 +9,9 @@ class TodoProvider with ChangeNotifier {
   List<Todo> get todos => _todos;
   Todo? get selectedTodo => _selectedTodo;
 
-  Future<void> fetchTodos() async {
-    _todos = await ApiService
-        .fetchTodos(); // Panggil metode statis langsung dari kelas
+  Future<void> fetchTodos(String apiUrl) async {
+    _todos =
+        await ApiService.fetchTodos(apiUrl); // Berikan apiUrl sebagai argumen
     notifyListeners();
   }
 

@@ -1,10 +1,13 @@
 import 'package:application/services/api-services.dart';
 import 'package:flutter/material.dart';
 import 'package:application/screens/todo_detail_screen.dart';
-
 import '../models/todo.dart';
 
 class TodoListScreen extends StatefulWidget {
+  final String apiUrl;
+
+  TodoListScreen({required this.apiUrl});
+
   @override
   _TodoListScreenState createState() => _TodoListScreenState();
 }
@@ -15,7 +18,7 @@ class _TodoListScreenState extends State<TodoListScreen> {
   @override
   void initState() {
     super.initState();
-    futureTodos = ApiService.fetchTodos();
+    futureTodos = ApiService.fetchTodos(widget.apiUrl);
   }
 
   @override
