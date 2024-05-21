@@ -13,7 +13,7 @@ class TodoDetailScreen extends StatelessWidget {
         title: Text('Todo Detail'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(19.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -24,12 +24,12 @@ class TodoDetailScreen extends StatelessWidget {
             SizedBox(height: 8),
             Text(
               'ID: ${todo.id}',
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
             ),
             SizedBox(height: 8),
             Text(
               'Completed: ${todo.completed ? 'Yes' : 'No'}',
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
             ),
           ],
         ),

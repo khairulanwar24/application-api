@@ -8,7 +8,7 @@ void main() {
     const String testApiUrl = 'https://jsonplaceholder.typicode.com/todos';
 
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp(apiUrl: testApiUrl));
+    await tester.pumpWidget(const MyApp(apiUrl: testApiUrl));
 
     // Verify that the app displays the todo list screen.
     expect(find.text('Todo List'), findsOneWidget);

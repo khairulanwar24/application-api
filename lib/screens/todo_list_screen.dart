@@ -6,7 +6,7 @@ import '../models/todo.dart';
 class TodoListScreen extends StatefulWidget {
   final String apiUrl;
 
-  TodoListScreen({required this.apiUrl});
+  const TodoListScreen({super.key, required this.apiUrl});
 
   @override
   _TodoListScreenState createState() => _TodoListScreenState();
@@ -25,26 +25,26 @@ class _TodoListScreenState extends State<TodoListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Todo List'),
+        title: const Text('Todo List'),
       ),
       body: FutureBuilder<List<Todo>>(
         future: futureTodos,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text('No todos found'));
+            return const Center(child: Text('No todos found'));
           } else {
             return ListView.separated(
               itemCount: snapshot.data!.length,
-              separatorBuilder: (context, index) => Divider(),
+              separatorBuilder: (context, index) => const Divider(),
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(
                     snapshot.data![index].title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16.0,
                       fontWeight: FontWeight.w500,
                     ),
